@@ -24,10 +24,25 @@ template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;}
 
 int main(){
     ios::sync_with_stdio(false);cin.tie(0);
-    int n;
-    cin >> n;
+    int k,n;
+    cin >> k >> n;
     vector<int> a(n);
     REP(i,n)cin >> a[i];
-    
+
+    a.emplace_back(k + a[0]);
+    vector<int> b(n);
+
+    int max = -1;
+    REP(i,n){
+        b[i] = a[i + 1] - a[i]; 
+        if(b[i] > max){
+            max = b[i];
+        }
+    }
+    int sum = accumulate(ALL(b), 0);
+
+    sum -= max;
+    cout << sum << endl;
+
     return 0;
 }
