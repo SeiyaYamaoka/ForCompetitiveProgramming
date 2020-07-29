@@ -106,6 +106,9 @@ int main(){
 	auto result = find(ALL(vec), 1);
 	if (result == vec.end()) {cout << "not found" << endl;}
 	else {cout << "found: " << *result << endl;}
+
+	//要素に対応する添え字をとってくる
+	int dis = distance(vec.begin(), result);
     //---------------------------------------------------------------------------------------------
     //---------------------------------------------------------------------------------------------
     vector<vector<pair<int, int>>> vp;
