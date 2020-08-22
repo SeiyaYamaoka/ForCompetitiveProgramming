@@ -126,7 +126,26 @@ int main(){
     cout << LLONG_MAX << endl;
     //---------------------------------------------------------------------------------------------
 
-    
+	string S = "RRS";
+	//S[] == 'R'の結果をboolに代入している
+    bool p = S[0] == 'R';
+    bool q = S[1] == 'R';
+    bool rr = S[2] == 'R';
+	cout << "pqr:";
+	//boolの内部的には0がfalse 1 がtrue
+	cout << p  << " " << q << " " << rr << endl;
+	//c++では一部の演算子に対して代替表現を用意している。 and = &&   or = || 
+    if (p and q and rr) {
+        cout << 3 << endl;
+    } else if ((p and q) or (q and rr)) {
+        cout << 2 << endl;
+    } else if (p or q or rr) {
+        cout << 1 << endl;
+    } else {
+        cout << 0 << endl;
+    }
+
+
 }
 
 //文字か数字チェック　0x8 -> 8として通る　abc -> error　34 -> 34
