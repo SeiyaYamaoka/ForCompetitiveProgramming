@@ -5,6 +5,7 @@
 
 using namespace std;
 
+int ctoi(const char c);
 void sstreamtest();
 vector<string> split(string str, string separator);
 
@@ -47,8 +48,33 @@ int main(){
 	//逆文字
 	string s6 = "reverse";
 	//reverse(s6.begin(), s6.end());
-	cout << s6 << endl;
+	cout << s6 << "\n";
+
+	//char型からint型へ
+	string s7 = "123456789";
+	int i1 = 0;
+	for(int i = 0;i < s7.length();i++){
+		i1 += ctoi(s7[i]);
+	}
+	cout << i1 << endl;
+
     return 0;
+}
+
+int ctoi(const char c){
+  switch(c){
+    case '0': return 0;
+    case '1': return 1;
+    case '2': return 2;
+    case '3': return 3;
+    case '4': return 4;
+    case '5': return 5;
+    case '6': return 6;
+    case '7': return 7;
+    case '8': return 8;
+    case '9': return 9;
+    default : return -1;
+  }
 }
 
 void sstreamtest(){
