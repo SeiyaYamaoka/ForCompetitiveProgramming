@@ -84,7 +84,7 @@ int main(){
     stable_sort(vec.begin(), vec.end());                    //昇順ソート
 	for (auto &p : vec)cout << p << " ";                    
 	cout << "\n";
-
+	//    sort(ALL(a));
     //sort : クイックソートのため、同じ値同士の順序が維持されません
 	sort(vec.begin(), vec.end(), std::greater<int>());      //降順ソート
 	for (auto &p : vec)cout << p << " ";
