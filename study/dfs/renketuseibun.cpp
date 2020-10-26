@@ -20,11 +20,10 @@ const int INF = 1 << 30;
 template<class T> inline bool chmin(T& a, T b) {if (a > b) {a = b; return true;} return false;}
 template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;} return false;}
 
-//重みとかつける場合　つけない時はvector<vector<int>>でいい
-struct Edge {
-    int to;
-};
-using Graph = vector<vector<Edge>>;
+//連結成分の個数を求める問題
+//DFS or BFS で同じ連結成分に含まれる頂点を全て「探索済み」にする  ->  DFS or BFS を行った回数が連結成分の個数
+
+using Graph = vector<vector<int>>;
 // 深さ優先探索
 vector<bool> seen;//見つけたらtureにする配列　
 void dfs(const Graph &G, int v) {
@@ -32,8 +31,8 @@ void dfs(const Graph &G, int v) {
 
     // v から行ける各頂点 next_v について
     for (auto next_v : G[v]) { 
-        if (seen[next_v.to]) continue; // next_v が探索済だったらスルー
-        dfs(G, next_v.to); // 再帰的に探索
+        if (seen[next_v]) continue; // next_v が探索済だったらスルー
+        dfs(G, next_v); // 再帰的に探索
     }
 }
 
@@ -43,18 +42,23 @@ int main(){
     // 頂点数と辺数
     int N, M; cin >> N >> M;
 
-    // グラフ入力受取 (ここでは無向グラフを想定)
+    // グラフ入力受取 無向グラフ
     Graph G(N);
     for (int i = 0; i < M; ++i) {
         int a, b;
         cin >> a >> b;
-        G[a].push_back({b});
-        G[b].push_back({a});
+        G[a].push_back(b);
+        G[b].push_back(a);
     }
 
-    // 頂点 0 をスタートとした探索 入力で0がないとバグ
+    int cnt = 0;
     seen.assign(N, false); // 全頂点を「未訪問」に初期化
-    dfs(G, 0);
+    for(int i = 0;i < N;++i){
+        if(seen[i])continue;
+        dfs(G,i);
+        cnt++;
+    }
+    cout << cnt << endl;
     
     return 0;
 }
