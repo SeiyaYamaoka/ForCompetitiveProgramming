@@ -21,13 +21,21 @@ template<class T> inline bool chmin(T& a, T b) {if (a > b) {a = b; return true;}
 template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;} return false;}
 
 
-
+int c[26];
 int main(){
     ios::sync_with_stdio(false);cin.tie(0);
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    REP(i,n)cin >> a[i];
-    
+    string s;
+    cin >> s;
+    for(int i = 0;i<s.length();i++){
+        c[s[i] - 0x61]++;
+    }
+    REP(i,26){
+        if(c[i] == 0){
+            //cout <<  i << endl;
+            printf("%c",0x61 + i);
+            return 0;
+        }
+    }
+    cout << "None" << endl;
     return 0;
 }

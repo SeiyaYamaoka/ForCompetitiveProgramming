@@ -219,7 +219,7 @@ ll bpow(ll a,ll n){
 	}
 	return x;
 }
-//素因数分解
+//素因数分解ju
 void Prfac(ll n) {
 	ll a = 2;
 	while (n >= a * a) {

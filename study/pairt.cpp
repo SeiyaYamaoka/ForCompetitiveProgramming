@@ -32,6 +32,9 @@ int main(){
     // p.second *= 4;
     // cout << p.first << " " << p.second << endl;
 
+
+    // auto [x1, y1] = A[i];
+    // auto [x2, y2] = A[j];
     //make_pairによる生成
     pair<int,double> p2 = MP(3,2.33);
     auto p3 = MP(4,"abc");

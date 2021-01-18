@@ -15,7 +15,7 @@ const int INF = 1 << 30;
 #define S second
 #define MP make_pair
 #define ALL(obj) (obj).begin(),(obj).end()
-#define debug(x) cout << #x << ": " << x << "\n"
+#define debug(x) cerr << #x << ": " << x << "\n"
 
 template<class T> inline bool chmin(T& a, T b) {if (a > b) {a = b; return true;} return false;}
 template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;} return false;}

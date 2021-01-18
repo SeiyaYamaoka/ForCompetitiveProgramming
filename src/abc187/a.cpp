@@ -15,19 +15,37 @@ const int INF = 1 << 30;
 #define S second
 #define MP make_pair
 #define ALL(obj) (obj).begin(),(obj).end()
-#define debug(x) cout << #x << ": " << x << "\n"
+#define debug(x) cerr << #x << ": " << x << "\n"
 
 template<class T> inline bool chmin(T& a, T b) {if (a > b) {a = b; return true;} return false;}
 template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;} return false;}
 
-
+int ctoi(const char c){
+  switch(c){
+    case '0': return 0;
+    case '1': return 1;
+    case '2': return 2;
+    case '3': return 3;
+    case '4': return 4;
+    case '5': return 5;
+    case '6': return 6;
+    case '7': return 7;
+    case '8': return 8;
+    case '9': return 9;
+    default : return -1;
+  }
+}
 
 int main(){
     ios::sync_with_stdio(false);cin.tie(0);
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    REP(i,n)cin >> a[i];
-    
+    string a,b;
+    cin >> a >> b;
+    int as = 0,bs = 0;
+    REP(i,3){
+        as += ctoi(a[i]);
+        bs += ctoi(b[i]);
+    }
+
+    cout << max(as,bs) << endl;
     return 0;
 }

@@ -15,7 +15,7 @@ const int INF = 1 << 30;
 #define S second
 #define MP make_pair
 #define ALL(obj) (obj).begin(),(obj).end()
-#define debug(x) cout << #x << ": " << x << "\n"
+#define debug(x) cerr << #x << ": " << x << "\n"
 
 template<class T> inline bool chmin(T& a, T b) {if (a > b) {a = b; return true;} return false;}
 template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;} return false;}
@@ -25,9 +25,19 @@ template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;}
 int main(){
     ios::sync_with_stdio(false);cin.tie(0);
     int n;
+    int cn = 0;
+    int max = 0;
     cin >> n;
-    vector<int> a(n);
-    REP(i,n)cin >> a[i];
+    REP(i,n){
+        char s;
+        cin >> s;
+        if(s == 'I')cn++;
+        if(s == 'D')cn--;
+        if(cn > max)max = cn;
+    }
+    cout << max  << endl;
+
+
     
     return 0;
 }

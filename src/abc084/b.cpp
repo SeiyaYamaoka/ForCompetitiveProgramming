@@ -24,10 +24,45 @@ template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;}
 
 int main(){
     ios::sync_with_stdio(false);cin.tie(0);
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    REP(i,n)cin >> a[i];
+    int a,b;
+    cin >> a >> b;
+    string s;
+    cin >> s;
+
+    if(s[a] != '-'){
+            cout << "No" << endl;
+            return 0;
+    }
+    REP(i,a){
+        //debug(i);
+        if(!('0' <= s[i] && s[i] <= '9')){
+            cout << "No" << endl;
+            return 0;
+        }
+    }
+    for(int i = a+1;i<a+b;i++){
+        //debug(i);
+        if(!('0' <= s[i] && s[i] <= '9')){
+            cout << "No" << endl;
+            return 0;
+        }
+    }
+
+    cout << "Yes" << endl;
+
+    // if(s[a] == '-' && a + b + 1 == s.length()){
+        
+    //     REP(i,s.length()){
+    //         if(i == a)continue;
+    //         if(isdigit(s[i]))y = true;
+            
+    //     }
+    // }
+    // if(y){
+    //     cout << "Yes" << endl;
+    // }else{
+    //     cout << "No" << endl;
+    // }
     
     return 0;
 }

@@ -26,8 +26,19 @@ int main(){
     ios::sync_with_stdio(false);cin.tie(0);
     int n;
     cin >> n;
-    vector<int> a(n);
+    vector<int> a(n),b(n);
     REP(i,n)cin >> a[i];
+    REP(i,n)cin >> b[i];
+    int cn = 0;
+    REP(i,n){
+        //debug(a[i] * b[i]);
+        cn += a[i] * b[i];
+    }
+    if(cn == 0){
+        cout << "Yes" << endl;
+    }else{
+        cout << "No" << endl;
+    }
     
     return 0;
 }
