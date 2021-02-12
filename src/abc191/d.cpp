@@ -20,14 +20,42 @@ const int INF = 1 << 30;
 template<class T> inline bool chmin(T& a, T b) {if (a > b) {a = b; return true;} return false;}
 template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;} return false;}
 
+void cf(double xx, double rr, int *low, int *high){
+    *low = ceil(xx-rr);
+    *high = floor(xx+rr);
+}
 
 
 int main(){
     ios::sync_with_stdio(false);cin.tie(0);
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    REP(i,n)cin >> a[i];
-    cout << n << endl;
+    double x,y,r,p;
+    int num = 0;
+    int dnum=0;
+    int start = 0,end = 0,top = 0,bottom = 0;
+    cin >> x >> y >> r;
+
+    cf(x,r,&start,&end);
+
+    for(int i=start;i<=end;i++){
+
+        p = sqrt(pow(r,2)-pow((x-(double)i),2));
+
+        cf(y,p,&bottom,&top);
+
+        //cout << top << ":" << bottom << "\n";
+        if(top == bottom){
+            dnum += 1;
+        }else{
+            dnum += top - bottom + 1;
+        }
+        
+        
+        // for(int j=bottom;j<=top;j++){
+        //     num = num + 1;
+        // }
+    }
+    cout << dnum << endl;
+    //cout << num << endl;
+
     return 0;
 }

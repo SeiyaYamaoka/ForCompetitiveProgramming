@@ -97,4 +97,21 @@ int main(){
 		}
 		cout << "}" << endl;
 	}
+
+	//------------------------------------------copy
+	int num = 3;
+	for (int bit = 0; bit < (1 << num); ++bit)
+    {
+        cout << bitset<8>(bit) << endl;
+        for(int i = 0;i < num;i++){
+            bool f = (bit & (1 << i)) ;
+            cout << f << endl;
+            if(f == 0){
+				
+            }else if(f == 1){
+                
+            }
+        }
+	}
+	//------------------------------------------------
 }

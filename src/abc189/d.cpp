@@ -26,8 +26,29 @@ int main(){
     ios::sync_with_stdio(false);cin.tie(0);
     int n;
     cin >> n;
-    vector<int> a(n);
-    REP(i,n)cin >> a[i];
-    cout << n << endl;
+    vector<string> s(n);
+    REP(i,n)cin >> s[i];
+    int cnt = 0;
+    for (int bit = 0; bit < (1 << (n + 1)); ++bit)
+    {
+        //cout << bitset<8>(bit) << endl;
+        bool cn = (bit & (1 << 0));
+        for(int i = 0;i<n;i++){
+            bool de = (bit & (1 << (i + 1))) ;
+            //debug(de);
+            if(s[i] == "AND"){
+                //cout << cn << " & " << de << endl;
+                cn = cn & de;
+                
+            }else if(s[i] == "OR"){
+                //cout << cn << " | " << de << endl;
+                cn = cn | de;
+            }
+            
+        }
+        if(cn == 1)cnt++;
+	}
+    cout << cnt << endl;
+
     return 0;
 }

@@ -26,8 +26,34 @@ int main(){
     ios::sync_with_stdio(false);cin.tie(0);
     int n;
     cin >> n;
-    vector<int> a(n);
-    REP(i,n)cin >> a[i];
-    cout << n << endl;
+    vector<int> a(n),syu;
+    REP(i,n){
+        cin >> a[i];
+        auto it = find(ALL(syu), a[i]);
+        if (it == syu.end()) {
+            syu.emplace_back(a[i]);
+        }
+    }
+    int max = -1;
+    for(int i = 0;i<syu.size();i++){
+        int cn = 0;
+        for(int j = 0;j<n;j++){
+            //debug(cn);
+            if(syu[i] > a[j]){
+                if(max < cn){
+                    max = cn;
+                }
+                cn = 0;
+                continue;
+            }
+            cn += syu[i];
+        }
+        if(max < cn){
+            max = cn;
+        }
+    }
+
+    cout << max << endl;
+
     return 0;
 }

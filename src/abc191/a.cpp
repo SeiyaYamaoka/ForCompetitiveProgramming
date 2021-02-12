@@ -24,10 +24,20 @@ template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;}
 
 int main(){
     ios::sync_with_stdio(false);cin.tie(0);
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    REP(i,n)cin >> a[i];
-    cout << n << endl;
+    int v,t,s,d;
+    cin >> v >> t >> s >> d;
+    // vector<int> a(n);
+    // REP(i,n)cin >> a[i];
+    int va = v * t;
+    int vs = v * s;
+    // debug(va);
+    // debug(vs);
+    if(va <= d && vs >= d){
+        cout << "No" << endl;
+        
+    }else{
+        cout << "Yes" << endl;
+    }
+
     return 0;
 }
