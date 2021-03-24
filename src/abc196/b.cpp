@@ -21,14 +21,32 @@ const int INF = 1 << 30;
 template<class T> inline bool chmin(T& a, T b) {if (a > b) {a = b; return true;} return false;}
 template<class T> inline bool chmax(T& a, T b) {if (a < b) {a = b; return true;} return false;}
 
+vector<string> split(string str, string separator){
+	if (separator == "") return { str };
+	vector<string> result;
 
+	string tstr = str + separator;
+
+	long l = tstr.length(), sl = separator.length();
+
+	string::size_type pos = 0, prev = 0;
+
+	for (; pos < l && (pos = tstr.find(separator, pos)) != string::npos; prev = (pos += sl)) {
+
+		result.emplace_back(tstr, prev, pos - prev);
+
+	}
+
+	return result;
+}
 
 int main(){
     ios::sync_with_stdio(false);cin.tie(0);
-    int n;
-    cin >> n;
-    vector<int> a(n);
-    REP(i,n)cin >> a[i];
-    out(n);
+    string x;
+    cin >> x;
+
+    vector<string> arr = split(x, ".");
+    out(arr[0]);
+
     return 0;
 }
